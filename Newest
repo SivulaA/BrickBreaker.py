@@ -21,8 +21,8 @@ ball = turtle.Turtle()
 ball.speed(0)
 ball.shape('square')
 ball.color('white')
-ball.goto
 ball.penup()
+ball.goto(paddle.xcor(), -350)
 ball.dx = 0.1
 ball.dy = 0.2
 
@@ -66,16 +66,12 @@ while True:
         ball.dx *= -1
 
     if ball.ycor()<-405:
-        ball.goto(0, 0)
+        ball.dy *= -1
+        ball.goto(paddle.xcor(), -350)
 
-
-    #if ball.distance(paddle)<40:
-        #ball.sety(-300)
-        #ball.dy*= -1
 
     # Paddle and ball collisions
     if (ball.ycor() < -340 and ball.ycor() > -350) and (ball.xcor() < paddle.xcor() + 60 and ball.xcor() > paddle.xcor() -60):
         ball.sety(-330)
         ball.dy *= -1
 
-        
